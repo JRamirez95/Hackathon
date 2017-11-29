@@ -74,9 +74,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <body>
 
 <div id="container" class="container">
-	<h1>Registrese</h1>
+	<h1>Registro</h1>
 	
-	<form action="/crud/CodeIgniter-3.1.6/user/save" method="POST" role="form">
+	<form action="" method="POST" role="form">
 	
     
 		<div class="form-group">
@@ -96,17 +96,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="form-group">
 			<label for="">Instrumento</label>
-			<input type="text" name="instrumento" class="form-control" id="" placeholder="Input field">
+			<input type="text" name="instrumento" class="form-control" id="" placeholder="">
 		</div>
 
         <div class="form-group">
 			<label for="">Genero de música</label>
-			<input type="text" name="genero" class="form-control" id="" placeholder="Input field">
+			<input type="text" name="genero" class="form-control" id="" placeholder="">
 		</div>
 
         <div class="form-group">
 			<label for="">Foto</label>
-			<input type="text" name="foto" class="form-control" id="" placeholder="Input field">
+			<input type="text" name="foto" class="form-control" id="" placeholder="">
 		</div>
 
 		<div class="form-group">
