@@ -30,4 +30,11 @@ class Musico_model extends CI_Controller
         }
             
     }
+
+    function intrumentos()
+    {
+      $query = $this->db->get('instrumentos');
+  
+      return $query->result_object();
+    }
 }

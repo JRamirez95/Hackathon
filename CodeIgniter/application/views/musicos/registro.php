@@ -46,6 +46,14 @@ body{
 </head>
 <body>
 
+<?php
+// Consultar la base de datos
+$con = mysqli_connect("localhost","root","","hackathon") or die ("Error de conexion");
+$consulta = "SELECT * FROM `instrumentos`";
+$ejecutar = mysqli_query($con,$consulta);
+
+ ?>
+
 <div class="container">
 <div class="row centered-form">
 	<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
@@ -70,12 +78,20 @@ body{
 
         <div class="form-group">
 			<label for="">Dirección</label>
-			<input type="textarea" name="direccion" class="form-control" id="" placeholder="">
+			<textarea type="text" name="direccion" class="form-control" id="" placeholder=""></textarea>
 		</div>
 
         <div class="form-group">
 			<label for="">Instrumento</label>
-			<input type="text" name="instrumento" class="form-control" id="" placeholder="">
+			<select name="instrumento" class="form-control" id="" multiple>
+			
+			<?php			
+
+			while ($fila = mysqli_fetch_array($ejecutar)) {
+				echo "<option >".$fila["nombre"]."</option>"; 				
+			}
+			?>			
+			</select>
 		</div>
 
         <div class="form-group">

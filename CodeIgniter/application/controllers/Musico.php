@@ -12,6 +12,11 @@ class Musico extends CI_Controller {
 	public function login()
     {
         $this->load->view('musicos/login');
+    }
+    
+    public function principal()
+    {
+        $this->load->view('musicos/principal');
 	}
 	
 	public function guardar()
@@ -42,10 +47,10 @@ class Musico extends CI_Controller {
 		// redirect
         if ($r) {		
             // $this->session->set_flashdata('message', 'User saved');
-            redirect('/Hackathon/CodeIgniter/musicos/login');
+            redirect('/Hackathon/CodeIgniter/musico/login');
         } else {
             // $this->session->set_flashdata('message', 'There was an error saving the user');
-            redirect('/Hackathon/CodeIgniter/musicos/registro');
+            redirect('/Hackathon/CodeIgniter/musico/registrar');
         }
 	}
 	
@@ -58,12 +63,20 @@ class Musico extends CI_Controller {
 	
 			if ($r == true) {              
 				// $this->session->set_flashdata('message', 'User saved');
-				redirect('/Hackathon/CodeIgniter/musico/registrar');
+				redirect('/Hackathon/CodeIgniter/musico/principal');
 	
 		   
 			} else {                
+                
 				// $this->session->set_flashdata('message', 'There was an error saving the user');
 				redirect('/Hackathon/CodeIgniter/musico/login');
 			}
-		}
+        }
+        
+        public function cargar() {            
+            $ins = $this->Musico_model->instrumentos();
+            
+            $data['instrumentos'] = $ins;     
+    
+        }
 }
