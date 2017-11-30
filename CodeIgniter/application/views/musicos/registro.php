@@ -13,21 +13,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 	
 	<style type="text/css">
-body{
-	/* Safari 4-5, Chrome 1-9 */
-	  background: -webkit-gradient(radial, center center, 0, center center, 460, from(#1a82f7), to(#2F2727));
-  
-	/* Safari 5.1+, Chrome 10+ */
-	  background: -webkit-radial-gradient(circle, #1a82f7, #2F2727);
-  
-	/* Firefox 3.6+ */
-	  background: -moz-radial-gradient(circle, #1a82f7, #2F2727);
-  
-	/* IE 10 */
-	  background: -ms-radial-gradient(circle, #1a82f7, #2F2727);
-	  height:600px;
+body{	
+	  background: #CECAC9;
   }
   
+  .panel-title{
+	  text-align: center;
+	  font-size: 26px;
+  }
   .centered-form{
 	  margin-top: 60px;
   }
@@ -56,10 +49,10 @@ $ejecutar = mysqli_query($con,$consulta);
 
 <div class="container">
 <div class="row centered-form">
-	<div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+	<div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Registro</h3>
+				<h3 class="panel-title"><strong>Registro</strong></h3>
 			</div>
 			<div class="panel-body">
 	
@@ -120,6 +113,7 @@ $ejecutar = mysqli_query($con,$consulta);
 		</div>
 		
 			<button type="submit" class="btn btn-primary">Registrarse</button>
+			<button type="submit" class="btn btn-danger">Cancelar</button>
 			<br>
 	</form>
 	
