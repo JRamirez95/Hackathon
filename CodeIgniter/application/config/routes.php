@@ -52,6 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 $route['login'] = 'musico/login';
 $route['registrar'] = 'musico/registrar';
-$route['default_controller'] = 'musico/login';
+$route['default_controller'] = 'musico/registrar';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

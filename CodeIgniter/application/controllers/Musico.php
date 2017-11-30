@@ -6,7 +6,10 @@ class Musico extends CI_Controller {
 	
 	public function registrar()
 	{
-		$this->load->view('musicos/registro');
+        $data['instrumentos'] = $this->Musico_model->intrumentos();
+        $data['generos'] = $this->Musico_model->generos();
+
+		$this->load->view('musicos/registro', $data);
 	}
 
 	public function login()
@@ -21,13 +24,25 @@ class Musico extends CI_Controller {
 	
 	public function guardar()
     {
+        
+           
+                $config['upload_path']='upload/images/';
+                $config['allowed_types']='jpg|png|gif';
+                $config['max_size']='1500';
+                $config['file_name'] = $_FILES['foto']['name'];
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+                $this->upload->do_upload('foto');
+                $uploadData=$this->upload->data();
+
+        
 		// get the params
         $nombre = $this->input->post('nombre');
         $apellido = $this->input->post('apellido');
         $direccion = $this->input->post('direccion');
         $instrumento = $this->input->post('instrumento');
         $genero = $this->input->post('genero');
-        $foto = $this->input->post('foto');        
+        $foto = $uploadData['file_name'];      
         $correo= $this->input->post('correo');
         $pass = $this->input->post('contrasenna');
 
@@ -79,4 +94,6 @@ class Musico extends CI_Controller {
             $data['instrumentos'] = $ins;     
     
         }
+
+
 }

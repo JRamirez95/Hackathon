@@ -65,6 +65,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-xs-6 col-sm-3 placeholder">
               <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">              
             </div>
-            </div>
+            </div>        
+    </div>
+
+          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+            <form name="ejemplo" action="22-html5-search-input.php" method="POST">
+              Buscar por instrumento: <select type="search" name="busqueda">
+                                        
+                                      </select>
+              
+              <input type="submit" value="Buscar">
+            </form>
+          </div>
     </body>
 	</html>

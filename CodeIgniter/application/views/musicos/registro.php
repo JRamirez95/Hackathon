@@ -39,14 +39,6 @@ body{
 </head>
 <body>
 
-<?php
-// Consultar la base de datos
-$con = mysqli_connect("localhost","root","","hackathon") or die ("Error de conexion");
-$consulta = "SELECT * FROM `instrumentos`";
-$ejecutar = mysqli_query($con,$consulta);
-
- ?>
-
 <div class="container">
 <div class="row centered-form">
 	<div class="col-xs-12 col-sm-8 col-md-8 col-sm-offset-2 col-md-offset-2">
@@ -56,7 +48,7 @@ $ejecutar = mysqli_query($con,$consulta);
 			</div>
 			<div class="panel-body">
 	
-	<form action="/Hackathon/CodeIgniter/musico/guardar" method="POST" role="form">
+	<form action="/Hackathon/CodeIgniter/musico/guardar" method="POST" role="form" enctype="multipart/form-data">
 	
     
 		<div class="form-group">
@@ -77,24 +69,24 @@ $ejecutar = mysqli_query($con,$consulta);
         <div class="form-group">
 			<label for="">Instrumento</label>
 			<select name="instrumento" class="form-control" id="" multiple>
-			
-			<?php			
-
-			while ($fila = mysqli_fetch_array($ejecutar)) {
-				echo "<option >".$fila["nombre"]."</option>"; 				
-			}
-			?>			
+			<?php foreach ($instrumentos as $instrumento) { ?>
+				<option value="<?php echo "$instrumento->nombre" ?>"><?php echo "$instrumento->nombre" ?></option>
+			<?php } ?>			
 			</select>
 		</div>
 
         <div class="form-group">
 			<label for="">Genero de música</label>
-			<input type="text" name="genero" class="form-control" id="" placeholder="">
+			<select name="genero" class="form-control" id="" multiple>
+			<?php foreach ($generos as $genero) { ?>
+				<option value="<?php echo "$genero->nombre" ?>"><?php echo "$genero->nombre" ?></option>
+			<?php } ?>			
+			</select>
 		</div>
 
         <div class="form-group">
 			<label for="">Foto</label>
-			<input type="text" name="foto" class="form-control" id="" placeholder="">
+			<input type="file" name="foto" class="form-control" id="" placeholder="">
 		</div>
 
 		<div class="form-group">
@@ -112,7 +104,7 @@ $ejecutar = mysqli_query($con,$consulta);
 			<input type="password" name="contrasenna" class="form-control" id="">
 		</div>
 		
-			<button type="submit" class="btn btn-primary">Registrarse</button>
+			<button type="submit" class="btn btn-primary" name="accept">Registrarse</button>
 			<button type="submit" class="btn btn-danger">Cancelar</button>
 			<br>
 	</form>

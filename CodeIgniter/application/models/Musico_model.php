@@ -31,10 +31,19 @@ class Musico_model extends CI_Controller
             
     }
 
-    function intrumentos()
+   public function intrumentos()
     {
       $query = $this->db->get('instrumentos');
   
-      return $query->result_object();
+      return $query->result();
+      
     }
+
+    public function generos()
+    {
+      $query = $this->db->get('generos');  
+      return $query->result();
+      
+    }
+    
 }
