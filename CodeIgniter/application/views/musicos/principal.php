@@ -60,22 +60,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
           <h1 class="page-header">Perfil</h1>
-
+       
           <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
               <img src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png" width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">              
             </div>
-            </div>        
-    </div>
-
-          <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
-            <form name="ejemplo" action="22-html5-search-input.php" method="POST">
-              Buscar por instrumento: <select type="search" name="busqueda">
-                                        
-                                      </select>
-              
-              <input type="submit" value="Buscar">
+            <form id="form" class="navbar-form navbar-left" role="search" method="POST" action="/Hackathon/CodeIgniter/musico/buscar">
+            <div class="form-group">
+							<select  class="form-control" id="query" name="query" placeholder= "Buscar amigos por género">
+              <?php foreach ($generos as $genero) { ?>
+                <option value="<?php echo "$genero->nombre" ?>"><?php echo "$genero->nombre" ?></option>
+              <?php } ?>
+              </select>
+              <input type="submit" class="btn btn-primary" id="buscar" value="Buscar" />
+      </div>
             </form>
-          </div>
+           
+            <form id="form" class="navbar-form navbar-left" role="search" method="POST" action="/Hackathon/CodeIgniter/musico/buscar">
+            <div class="form-group">
+							<select  class="form-control" id="queryInst" name="instru" placeholder= "Buscar amigos por instrumentos">
+              <?php foreach ($instrumentos as $instrumento) { ?>
+                <option value="<?php echo "$instrumento->nombre" ?>"><?php echo "$instrumento->nombre" ?></option>
+              <?php } ?>
+              </select>
+              <input type="submit" class="btn btn-primary" id="buscarInst" value="Buscar" />
+      </div>
+						</form>
+            </div>
+
+      </div>      
+          <div class="col-md-9">
+
+          <table class="table table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>Resultado de búsqueda</th>
+					</tr>	
+				</thead>
+				<tbody>
+        <tr>
+         
+        </tr>
+				</tbody>
+			</table>	
+      </div>
     </body>
 	</html>

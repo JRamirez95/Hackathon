@@ -45,5 +45,12 @@ class Musico_model extends CI_Controller
       return $query->result();
       
     }
+
+    public function buscarInstrumento($instrument) {
+
+        $data=$this->db->query("SELECT * FROM musicos WHERE instrumento = '$instrument'");
+        return $data->result_array();
+        
+      }
     
 }

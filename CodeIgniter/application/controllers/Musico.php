@@ -19,7 +19,10 @@ class Musico extends CI_Controller {
     
     public function principal()
     {
-        $this->load->view('musicos/principal');
+        $data['instrumentos'] = $this->Musico_model->intrumentos();
+        $data['generos'] = $this->Musico_model->generos();
+
+        $this->load->view('musicos/principal', $data);
 	}
 	
 	public function guardar()
@@ -86,14 +89,18 @@ class Musico extends CI_Controller {
 				// $this->session->set_flashdata('message', 'There was an error saving the user');
 				redirect('/Hackathon/CodeIgniter/musico/login');
 			}
-        }
+        }      
         
-        public function cargar() {            
-            $ins = $this->Musico_model->instrumentos();
-            
-            $data['instrumentos'] = $ins;     
-    
-        }
+        
+        public function buscar() {
+            $instrumento = $this->input->post('instru');
 
+            $data ['artistas'] = $this->Musico_model->buscarInstrumento($instrumento);
+            
+            $this->load->view('musicos/principal', $data);
+        
+    }
+    
+   
 
 }
